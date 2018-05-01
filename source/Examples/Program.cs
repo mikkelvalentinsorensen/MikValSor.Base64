@@ -1,7 +1,13 @@
-.NET Standard Library for Base64 value type in a style equivalent to MikValSor.Base32
+﻿class Program
+{
 
-## Value Type Encode Example:
-```cs
+static void Main(string[] args)
+{
+	var program = new Program();
+	program.ValueTypeEncodeExample();
+	program.ValueTypeParseExample();
+}
+
 void ValueTypeEncodeExample()
 {
 	var bytearray = new byte[] { 0, 1, 2, 4, 5, 6, 7, 8, 9, 10, 11 };
@@ -13,10 +19,7 @@ void ValueTypeEncodeExample()
 	Output:
 	base64: AAECBAUGBwgJCgs=
 **/
-```
 
-## Value Type Parse Example:
-```cs
 void ValueTypeParseExample()
 {
 	var base64string = "AAECBAUGBwgJCgs=";
@@ -42,4 +45,8 @@ void ValueTypeParseExample()
 	bytearray[9]: 10
 	bytearray[10]: 11
 **/
-```
+
+
+
+
+}

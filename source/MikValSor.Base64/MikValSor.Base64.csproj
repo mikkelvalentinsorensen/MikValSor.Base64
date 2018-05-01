@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0;net45</TargetFrameworks>
+    <RootNamespace>MikValSor.Encoding</RootNamespace>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Mikkel Valentin Sørensen</Authors>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/mikkelvalentinsorensen/MikValSor.Base64/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/mikkelvalentinsorensen/MikValSor.Base64</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/mikkelvalentinsorensen/MikValSor.Base64</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>Base64 RFC4648 MikValSor</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>.NET Standard Library for Base64 value type in a style equivalent to MikValSor.Base32</Description>
+    <Copyright>Mikkel Valentin Sørensen</Copyright>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <Version>1.0.0</Version>
+    <PackageReleaseNotes>1.0.0 - Initial release.</PackageReleaseNotes>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+</Project>
