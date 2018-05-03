@@ -1,11 +1,18 @@
-﻿namespace MikValSor.Encoding
+﻿using MikValSor.Immutable;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+
+namespace MikValSor.Encoding
 {
 	/// <summary>
 	///		This class is a immutable representation of a Base64 encoding.
 	/// </summary>
-	public class Base64
+	[Serializable]
+	public sealed class Base64 : ISerializable
 	{
-		private readonly byte[] ByteArray;
+		private readonly ImmutableCollection<byte> Bytes;
 		private readonly string Value;
 
 		/// <summary>
@@ -13,9 +20,9 @@
 		/// </summary>
 		public readonly Base64Format Format;
 
-		private Base64(byte[] byteArray, string value, Base64Format format)
+		private Base64(IList<byte> bytes, string value, Base64Format format)
 		{
-			ByteArray = byteArray;
+			Bytes = bytes as ImmutableCollection<byte> ?? new ImmutableCollection<byte>(bytes);
 			Value = value;
 			Format = format;
 		}
@@ -24,16 +31,16 @@
 		/// <summary>
 		///		Constructs a Base64 value from a byte array.
 		/// </summary>
-		/// <param name="byteArray">
-		///		Source byte array for the Base64 value.
+		/// <param name="bytes">
+		///		Source bytes for the Base32 value.
 		/// </param>
 		/// <param name="format">
 		///		Specifies the Base64 encoding format.
 		/// </param>
-		public Base64(byte[] byteArray, Base64Format format = Base64Format.RFC4648)
+		public Base64(IList<byte> bytes, Base64Format format = Base64Format.RFC4648)
 		{
-			ByteArray = byteArray;
-			Value = System.Convert.ToBase64String(ByteArray);
+			Bytes = bytes as ImmutableCollection<byte> ?? new ImmutableCollection<byte>(bytes);
+			Value = Convert.ToBase64String(Bytes.ToArray());
 			Format = format;
 		}
 
@@ -46,7 +53,7 @@
 		/// </returns>
 		public byte[] ToByteArray()
 		{
-			return (byte[])ByteArray.Clone();
+			return Bytes.ToArray();
 		}
 		/// <summary>
 		///		Determines whether the specified object is equal to the current object.
@@ -136,5 +143,21 @@
 				return false;
 			}
 		}
+
+		#region Serializable
+
+		void ISerializable.GetObjectData(SerializationInfo info, StreamingContext context)
+		{
+			info.AddValue("B", Bytes);
+			info.AddValue("F", Format);
+		}
+		private Base64(SerializationInfo info, StreamingContext context)
+		{
+			Bytes = (ImmutableCollection<byte>)info.GetValue("B", typeof(ImmutableCollection<byte>));
+			Format = (Base64Format)info.GetValue("F", typeof(Base64Format));
+			Value = Convert.ToBase64String(Bytes.ToArray());
+		}
+
+		#endregion Serializable
 	}
 }
