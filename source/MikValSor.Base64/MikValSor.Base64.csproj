@@ -15,8 +15,9 @@
     <Copyright>Mikkel Valentin Sørensen</Copyright>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>1.0.1 - Made Base64 value type immutable and serializable.
+    <Version>1.0.2</Version>
+    <PackageReleaseNotes>1.0.2 - Added Icon.
+1.0.1 - Made Base64 value type immutable and serializable.
 1.0.0 - Initial release.</PackageReleaseNotes>
     <FileVersion>1.0.0.0</FileVersion>
     <PackageIconUrl>https://raw.githubusercontent.com/mikkelvalentinsorensen/MikValSor/master/icon/icon.png</PackageIconUrl>
