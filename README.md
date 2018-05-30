@@ -1,5 +1,7 @@
 .NET Standard Library for Base64 value type in a style equivalent to MikValSor.Base32
 
+Nuget package: [https://www.nuget.org/packages/MikValSor.Base64](https://www.nuget.org/packages/MikValSor.Base64)
+
 ## Value Type Encode Example:
 ```cs
 void ValueTypeEncodeExample()
